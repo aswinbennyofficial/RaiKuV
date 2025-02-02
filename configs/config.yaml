@@ -1,0 +1,8 @@
+log:
+  level: "debug"
+  output: "" # file
+  file:
+    path: "/app/logs/myapp.log"
+    max_size: 100
+    max_age: 30
+    max_backups: 3
