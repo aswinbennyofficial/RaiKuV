@@ -20,7 +20,11 @@ func main(){
 	logger := logging.NewLogger(yamlConfigs.LogConfig)
 
 	// Initialise a new data store
-	ds := storage.NewDataStore()
+	ds,err := storage.NewStorage("map")
+	if err!=nil{
+		logger.Error().Err(err).Msg("Failed to initialised data store")
+		os.Exit(1)
+	}
 
 	// Initialise new TCP server for client to node comms
 	tcpServer := node.NewTCPServer("3232",ds, &logger)

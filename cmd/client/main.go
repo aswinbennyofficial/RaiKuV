@@ -171,7 +171,7 @@ func (c *Client) handlePut(input string) error {
     }
 
     if errMsg := response["errorMsg"].(string); errMsg != "" {
-        return fmt.Errorf(errMsg)
+        return fmt.Errorf("%s", errMsg)
     }
 
     fmt.Printf("\033[32mSuccessfully stored value for key '%s'\033[0m\n", parts[0])
@@ -189,7 +189,7 @@ func (c *Client) handleGet(key string) error {
     }
 
     if errMsg := response["errorMsg"].(string); errMsg != "" {
-        return fmt.Errorf(errMsg)
+        return fmt.Errorf("%s", errMsg)
     }
 
     fmt.Printf("\033[32mValue: %s\033[0m\n", response["value"])
@@ -207,7 +207,7 @@ func (c *Client) handlePop(key string) error {
     }
 
     if errMsg := response["errorMsg"].(string); errMsg != "" {
-        return fmt.Errorf(errMsg)
+        return fmt.Errorf("%s", errMsg)
     }
 
     fmt.Printf("\033[32mSuccessfully removed key '%s'\033[0m\n", key)

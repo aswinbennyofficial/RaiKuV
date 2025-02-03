@@ -12,11 +12,11 @@ import (
 
 type TCPServer struct {
     Address   string
-    DataStore *storage.DataStore
+    DataStore storage.Storage
     Logger    *zerolog.Logger
 }
 
-func NewTCPServer(address string, dataStore *storage.DataStore, logger *zerolog.Logger) *TCPServer {
+func NewTCPServer(address string, dataStore storage.Storage, logger *zerolog.Logger) *TCPServer {
     return &TCPServer{
         Address:   address,
         DataStore: dataStore,
